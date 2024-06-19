@@ -1,37 +1,70 @@
-export function createMenuItem(name, description, price) {
-    const menuItem = document.createElement("div");
-    menuItem.classList.add("menu-item");
+export function createMenuHero(parentElement) {
+    const heroSectionDiv = document.createElement("div");
+    heroSectionDiv.classList.add("hero-section");
 
-    const itemName = document.createElement("h2");
-    itemName.textContent = name;
+    const heroTitle = document.createElement("h1");
+    heroTitle.textContent = "Our Menu";
 
-    const itemDescription = document.createElement("p");
-    itemDescription.textContent = description;
-
-    const itemPrice = document.createElement("p");
-    itemPrice.classList.add("price");
-    itemPrice.textContent = "Price: " + price + "€";
-
-    menuItem.appendChild(itemName);
-    menuItem.appendChild(itemDescription);
-    menuItem.appendChild(itemPrice);
-
-    return menuItem;
+    heroSectionDiv.appendChild(heroTitle);
+    parentElement.appendChild(heroSectionDiv);
 }
 
-export function createMenuSection(parentElement, sectionTitle, items) {
-    const sectionDiv = document.createElement("div");
-    sectionDiv.classList.add(sectionTitle.toLowerCase().replace(/\s/g, '-'));
+const beverages = [
+    { name: "Ayran", description: "A traditional Turkish yogurt-based drink, refreshing and slightly salty.", price: 3 },
+    { name: "Fanta Exotic", description: "A tropical flavored carbonated soft drink made with a blend of fruit juices like pineapple, passion fruit, and mango.", price: 3 }
+];
 
-    const sectionTitleElement = document.createElement("h2");
-    sectionTitleElement.textContent = sectionTitle;
+const sides = [
+    { name: "Fries", description: "Crispy and golden potato fries, perfect as a side dish or snack.", price: 4 },
+    { name: "Small Salad", description: "A fresh mix of lettuce, tomatoes, cucumbers, and dressing, a light and healthy option.", price: 4 }
+];
 
-    sectionDiv.appendChild(sectionTitleElement);
+const mainDishes = [
+    { name: "Kebap", description: "Grilled or roasted meat dish, typically served with vegetables, rice, or bread, a staple of Middle Eastern cuisine.", price: 6 },
+    { name: "Yufka", description: "Just like kebap but with a thin, round flatbread used in Turkish cuisine for wraps and dishes.", price: 6 },
+    { name: "Pizza", description: "Delicious Italian dish with a thin crust topped with tomato sauce, cheese, and various toppings.", price: 8 }
+];
 
-    items.forEach(item => {
-        const menuItem = createMenuItem(item.name, item.description, item.price);
-        sectionDiv.appendChild(menuItem);
+function createMenuItemCard(item) {
+    const card = document.createElement("div");
+
+    const name = document.createElement("h2");
+    name.textContent = item.name;
+
+    const description = document.createElement("p");
+    description.textContent = item.description;
+
+    const price = document.createElement("p");
+    price.textContent = item.price + "€";
+
+    card.appendChild(name);
+    card.appendChild(description);
+    card.appendChild(price);
+
+    return card;
+}
+
+export function createAllMenuItemCards(parentElement) {
+    const beveragesSection = document.createElement("div");
+    const sidesSection = document.createElement("div");
+    const mainDishesSection = document.createElement("div");
+
+    beverages.forEach(item => {
+        const itemCard = createMenuItemCard(item);
+        beveragesSection.appendChild(itemCard);
     });
 
-    parentElement.appendChild(sectionDiv);
+    sides.forEach(item => {
+        const itemCard = createMenuItemCard(item);
+        sidesSection.appendChild(itemCard);
+    });
+
+    mainDishes.forEach(item => {
+        const itemCard = createMenuItemCard(item);
+        mainDishesSection.appendChild(itemCard);
+    });
+
+    parentElement.appendChild(beveragesSection);
+    parentElement.appendChild(sidesSection);
+    parentElement.appendChild(mainDishesSection);
 }

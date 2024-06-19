@@ -1,5 +1,6 @@
-import { createHeroSection, createAboutSection, createHoursSection, createLocationSection } from "./home.js";
-import { createMenuSection } from './menu.js';
+import { createHomeHero, createAboutSection, createHoursSection, createLocationSection } from "./home.js";
+import { createMenuHero, createAllMenuItemCards } from './menu.js';
+import { createContactHero, createAllTeamMemberCards } from "./contact.js";
 
 const contentDiv = document.querySelector("#content");
 const homeButton = document.querySelector("#homeButton");
@@ -8,7 +9,7 @@ const contactButton = document.querySelector("#contactButton");
 
 // Initially load home tab
 // Calling the functions to create the home sections
-createHeroSection(contentDiv);
+createHomeHero(contentDiv);
 createAboutSection(contentDiv);
 createHoursSection(contentDiv);
 createLocationSection(contentDiv);
@@ -17,7 +18,7 @@ homeButton.addEventListener("click", () => {
     //Removing other elements
     removePageConent(contentDiv);
     // Calling the functions to create the home sections
-    createHeroSection(contentDiv);
+    createHomeHero(contentDiv);
     createAboutSection(contentDiv);
     createHoursSection(contentDiv);
     createLocationSection(contentDiv);
@@ -27,15 +28,15 @@ menuButton.addEventListener("click", () => {
     //Removing other elements
     removePageConent(contentDiv);
     // Calling the functions to create the menu sections
-    createMenuSection(contentDiv, "Beverages", beverages);
-    createMenuSection(contentDiv, "Sides", sides);
-    createMenuSection(contentDiv, "Main Dishes", mainDishes);
+    createMenuHero(contentDiv);
+    createAllMenuItemCards(contentDiv);
 })
 
 contactButton.addEventListener("click", () => {
     //Removing other elements
     removePageConent(contentDiv);
-    console.log("Here will be stuff");
+    createContactHero(contentDiv);
+    createAllTeamMemberCards(contentDiv);
 })
 
 function removePageConent(parentDiv) {
@@ -59,4 +60,4 @@ const mainDishes = [
     { name: "Pizza", description: "Delicious Italian dish with a thin crust topped with tomato sauce, cheese, and various toppings.", price: 8 }
 ];
 
-console.log("Hello :)");
+console.log("Hello :D");

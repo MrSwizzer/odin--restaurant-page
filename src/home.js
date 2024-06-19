@@ -1,6 +1,6 @@
 import doenerImage from './doener.jpg';
 
-function createHeroSection(parentElement) {
+export function createHomeHero(parentElement) {
     const heroSectionDiv = document.createElement("div");
     heroSectionDiv.classList.add("hero-section");
 
@@ -21,7 +21,7 @@ function createHeroSection(parentElement) {
     parentElement.appendChild(heroSectionDiv);
 }
 
-function createAboutSection(parentElement) {
+export function createAboutSection(parentElement) {
     const aboutSectionDiv = document.createElement("div");
     aboutSectionDiv.classList.add("about-section");
 
@@ -38,7 +38,7 @@ function createAboutSection(parentElement) {
 }
 
 
-function createHoursSection(parentElement) {
+export function createHoursSection(parentElement) {
     const hoursSectionDiv = document.createElement("div");
     hoursSectionDiv.classList.add("hours-section");
 
@@ -54,7 +54,7 @@ function createHoursSection(parentElement) {
     parentElement.appendChild(hoursSectionDiv);
 }
 
-function createLocationSection(parentElement) {
+export function createLocationSection(parentElement) {
     const locationSectionDiv = document.createElement("div");
     locationSectionDiv.classList.add("location-section");
 
@@ -70,4 +70,3 @@ function createLocationSection(parentElement) {
     parentElement.appendChild(locationSectionDiv);
 }
 
-export {createHeroSection, createAboutSection, createHoursSection, createLocationSection};
