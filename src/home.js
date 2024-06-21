@@ -1,8 +1,11 @@
-import doenerImage from './doener.jpg';
+import donerIcon from "./doner-kebab.png";
 
 export function createHomeHero(parentElement) {
     const heroSectionDiv = document.createElement("div");
     heroSectionDiv.classList.add("hero-section");
+
+    const leftSideWrapper = document.createElement("div");
+    leftSideWrapper.classList.add("left-side-wrapper");
 
     const heroTitle = document.createElement("h1");
     heroTitle.textContent = "Döner King";
@@ -10,16 +13,24 @@ export function createHomeHero(parentElement) {
     const heroParagraph = document.createElement("p");
     heroParagraph.textContent = "The best Kebab in the district.";
 
-    const heroImage = document.createElement("img");
-    heroImage.src = doenerImage;
-    heroImage.alt = "Picture of a Döner";
+    leftSideWrapper.appendChild(heroTitle);
+    leftSideWrapper.appendChild(heroParagraph);
 
-    heroSectionDiv.appendChild(heroTitle);
-    heroSectionDiv.appendChild(heroParagraph);
-    heroSectionDiv.appendChild(heroImage);
+    const imgWrapper = document.createElement("div");
+    imgWrapper.classList.add("image-wrapper");
+
+    const heroImage = document.createElement("img");
+    heroImage.src = donerIcon;
+    heroImage.alt = "Launch Icon";
+    heroImage.style.height = "250px";
+    imgWrapper.appendChild(heroImage);
+
+    heroSectionDiv.appendChild(leftSideWrapper);
+    heroSectionDiv.appendChild(imgWrapper);
 
     parentElement.appendChild(heroSectionDiv);
 }
+
 
 export function createAboutSection(parentElement) {
     const aboutSectionDiv = document.createElement("div");
@@ -45,8 +56,18 @@ export function createHoursSection(parentElement) {
     const hoursTitle = document.createElement("h2");
     hoursTitle.textContent = "Hours";
 
-    const hoursParagraph = document.createElement("p");
-    hoursParagraph.textContent = "Monday - Friday: 6am - 6pm, Saturday: 8am - 10pm, Sunday: closed";
+    const hoursParagraph = document.createElement("ul");
+    const hoursMondayToFriday = document.createElement("li");
+    const hoursSaturday = document.createElement("li");
+    const hoursSunday = document.createElement("li");
+
+    hoursMondayToFriday.textContent = "Monday - Friday: 6am - 6pm";
+    hoursSaturday.textContent = "Saturday: 8am - 10pm";
+    hoursSunday.textContent = "Sunday: closed";
+
+    hoursParagraph.appendChild(hoursMondayToFriday);
+    hoursParagraph.appendChild(hoursSaturday);
+    hoursParagraph.appendChild(hoursSunday);
 
     hoursSectionDiv.appendChild(hoursTitle);
     hoursSectionDiv.appendChild(hoursParagraph);

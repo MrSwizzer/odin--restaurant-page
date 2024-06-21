@@ -1,3 +1,5 @@
+import contactIcon from "./contacts.svg";
+
 export function createContactHero(parentElement) {
     const heroSectionDiv = document.createElement("div");
     heroSectionDiv.classList.add("hero-section");
@@ -5,7 +7,13 @@ export function createContactHero(parentElement) {
     const heroTitle = document.createElement("h1");
     heroTitle.textContent = "Contact Us";
 
+    const heroImage = document.createElement("img");
+    heroImage.src = contactIcon;
+    heroImage.alt = "Contact Icon";
+    heroImage.style.height = "250px";
+
     heroSectionDiv.appendChild(heroTitle);
+    heroSectionDiv.appendChild(heroImage);
     parentElement.appendChild(heroSectionDiv);
 }
 
@@ -35,6 +43,7 @@ function createTeamMemberCard(member) {
     card.appendChild(role);
     card.appendChild(email);
     card.appendChild(tel);
+    card.classList.add("card");
 
     return card;
 }

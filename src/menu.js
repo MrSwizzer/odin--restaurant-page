@@ -1,3 +1,5 @@
+import menuIcon from "./menu.svg";
+
 export function createMenuHero(parentElement) {
     const heroSectionDiv = document.createElement("div");
     heroSectionDiv.classList.add("hero-section");
@@ -5,7 +7,13 @@ export function createMenuHero(parentElement) {
     const heroTitle = document.createElement("h1");
     heroTitle.textContent = "Our Menu";
 
+    const heroImage = document.createElement("img");
+    heroImage.src = menuIcon;
+    heroImage.alt = "Menu Icon";
+    heroImage.style.height = "250px";
+
     heroSectionDiv.appendChild(heroTitle);
+    heroSectionDiv.appendChild(heroImage);
     parentElement.appendChild(heroSectionDiv);
 }
 
@@ -40,6 +48,7 @@ function createMenuItemCard(item) {
     card.appendChild(name);
     card.appendChild(description);
     card.appendChild(price);
+    card.classList.add("card");
 
     return card;
 }
