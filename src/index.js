@@ -17,9 +17,7 @@ createLocationSection(contentDiv);
 
 homeButton.addEventListener("click", () => {
     //Scroll to the top of the Tab
-    window.scrollTo({
-        top: 0
-    });
+    scrollToTop()
     //Removing other elements
     removePageConent(contentDiv);
     // Calling the functions to create the home sections
@@ -31,9 +29,7 @@ homeButton.addEventListener("click", () => {
 
 menuButton.addEventListener("click", () => {
     //Scroll to the top of the Tab
-    window.scrollTo({
-        top: 0
-    });
+    scrollToTop()
     //Removing other elements
     removePageConent(contentDiv);
     // Calling the functions to create the menu sections
@@ -43,15 +39,19 @@ menuButton.addEventListener("click", () => {
 
 contactButton.addEventListener("click", () => {
     //Scroll to the top of the Tab
-    window.scrollTo({
-        top: 0
-    });
+    scrollToTop()
     //Removing other elements
     removePageConent(contentDiv);
     // Calling the functions to create the contact sections
     createContactHero(contentDiv);
     createAllTeamMemberCards(contentDiv);
 })
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0
+    });
+}
 
 function removePageConent(parentDiv) {
     parentDiv.textContent = "";
