@@ -43,6 +43,7 @@ function createMenuItemCard(item) {
     description.textContent = item.description;
 
     const price = document.createElement("p");
+    price.classList.add("price");
     price.textContent = item.price + "€";
 
     card.appendChild(name);

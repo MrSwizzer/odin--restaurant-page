@@ -206,8 +206,6 @@ h2 {
   box-sizing: border-box;
   display: flex;
   margin-top: 20px;
-  
-  /* background: linear-gradient(125deg,#9c9c9c, #cacaca); */
   justify-content: center;
   gap: 50px;
   align-items: center;
@@ -215,7 +213,13 @@ h2 {
 }
 
 .image-wrapper {
-  background: radial-gradient(circle, rgba(202,202,202,1) 0%, rgba(156,156,156,1) 20%, rgba(255,255,255,1) 80%, rgba(255,255,255,1) 100%);
+  background: radial-gradient(
+    circle,
+    rgb(8, 8, 8) 0%,
+    rgba(156, 156, 156, 1) 20%,
+    rgba(255, 255, 255, 1) 80%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 
 .about-section,
@@ -229,3 +233,6 @@ h2 {
   text-align: center;
 }
 
+.price {
+  font-weight: bold;
+}
